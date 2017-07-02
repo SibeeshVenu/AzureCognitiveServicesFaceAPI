@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AzureCognitiveServiceFaceAPI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="430">
     <Grid>
-        
+        <Image Stretch="UniformToFill" x:Name="FaceImage" HorizontalAlignment="Left" Margin="0,0,0,30"/>
+        <Button x:Name="BtnUpload" VerticalAlignment="Bottom" Content="Upload the image" Margin="20,5" Height="20" Click="BtnUpload_Click"/>
     </Grid>
 </Window>
