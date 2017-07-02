@@ -1,5 +1,6 @@
 # AzureCognitiveServicesFaceAPI
-﻿We are going to follow the preceding steps to create the Face API application
+
+We are going to follow the preceding steps to create the Face API application
 
 1. Create the Face API in portal, and get the key, end point URI if you select location as Southeast Asia
 2. Create a WPF application
@@ -10,6 +11,7 @@
 
 
 #3 Drag Image, Button controls from the Toolbox, and apply the needed settings
+
 
 ```<Window x:Class="AzureCognitiveServiceFaceAPI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
