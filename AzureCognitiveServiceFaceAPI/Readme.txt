@@ -67,3 +67,20 @@ var openFrame = new Microsoft.Win32.OpenFileDialog { Filter = "JPEG Image(*.jpg)
 
 
 #6 Write the code for drawing the rectangles in faces
+
+if (facesFound.Length <= 0) return;
+            var drwVisual = new DrawingVisual();
+            var drwContext = drwVisual.RenderOpen();
+            drwContext.DrawImage(bitMapSource, new Rect(0, 0, bitMapSource.Width, bitMapSource.Height));
+            var dpi = bitMapSource.DpiX;
+            var resizeFactor = 96 / dpi;
+            foreach (var faceRect in facesFound)
+            {
+                drwContext.DrawRectangle(Brushes.Transparent, new Pen(Brushes.Blue, 6),
+                    new Rect(faceRect.Left * resizeFactor, faceRect.Top * resizeFactor, faceRect.Width * resizeFactor,
+                        faceRect.Height * resizeFactor));
+            }
+            drwContext.Close();
+            var renderToImageCtrl = new RenderTargetBitmap((int)(bitMapSource.PixelWidth * resizeFactor), (int)(bitMapSource.PixelHeight * resizeFactor), 96, 96, PixelFormats.Pbgra32);
+            renderToImageCtrl.Render(drwVisual);
+            FaceImage.Source = renderToImageCtrl;
